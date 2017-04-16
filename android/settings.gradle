@@ -1,0 +1,3 @@
+rootProject.name = 'react_native_spotify_ios_sdk_boilerplate'
+
+include ':app'
