@@ -1,53 +1,30 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  StyleSheet,
+  TouchableHighlight,
   Text,
-  View
+  View,
+  NativeModules
 } from 'react-native';
 
+const SpotifyModule = NativeModules.SpotifyModule;
+
 export default class react_native_spotify_ios_sdk_boilerplate extends Component {
+  onButtonPress() {
+    SpotifyModule.authenticate(data => {
+      console.log(data);
+    });
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+      <View style={{paddingTop:40}}>
+        <TouchableHighlight onPress={this.onButtonPress.bind(this)}>
+          <Text>Spotify Auth</Text>
+        </TouchableHighlight>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('react_native_spotify_ios_sdk_boilerplate', () => react_native_spotify_ios_sdk_boilerplate);

@@ -11,6 +11,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import "SpotifyModule.h"
 
 @implementation AppDelegate
 
@@ -32,6 +33,21 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+/**
+ * Called whenever the application is opened from a custom URL Scheme
+ * ex: my-app-login, fb[APP_ID], etc...
+ */
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+  
+  return [SpotifyModule application:application
+                            openURL:url
+                  sourceApplication:sourceApplication
+                         annotation:annotation];
 }
 
 @end
