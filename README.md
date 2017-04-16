@@ -7,7 +7,7 @@ npm install
 ```
 
 Add your Spotify Application client_id into the `react-native-spotify-ios-sdk-boilerplate/ios/react-native-spotify-ios-sdk-boilerplate/SpotifyModule.m` file
-```
+```objective-c
   // The spotify client id
   [[SPTAuth defaultInstance] setClientID:@"[your-client-id]"];
 ```
